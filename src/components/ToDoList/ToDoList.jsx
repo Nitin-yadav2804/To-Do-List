@@ -24,7 +24,7 @@ function ToDoList({text, handleDelete}) {
         { isEditing? <textarea
                         type="text"
                         value={editedText}
-                        className="w-[400px] p-2 border-1 rounded-xl"
+                        className="w-[500px] p-2 border-1 rounded-xl scroll-auto overflow-y-auto"
                         onChange={(e) => {
                             setEditedText(e.target.value)
                         }}
