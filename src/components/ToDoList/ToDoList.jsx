@@ -43,9 +43,7 @@ function ToDoList({text, handleDelete}) {
                 }
                 onClickHandler={handleEdit}
                 customCSS={`rounded-2xl transition-colors w-[50px] h-[50px] ${isChecked? 'bg-white/20 dark:bg-black/20' : 'hover:text-green-700 hover:bg-green-100 hover:border-green-600 hover:ease-in-out'} `}
-                btnDisabled={
-                    isChecked? 'true' : 'false'
-                }
+                btnDisabled={isChecked}
             />
             <Button
                 text={<i className="fa-solid fa-trash"></i>}
