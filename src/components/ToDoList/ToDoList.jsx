@@ -5,17 +5,22 @@ import Button from "../Button/Button"
 function ToDoList({text, handleDelete}) {
 
     const [isEditing, setIsEditing] = useState(false)
-
     const [editedText, setEditedText] = useState(text)
+    const [isChecked, setIsChecked] = useState(false)
 
     const handleEdit = () => {
         setIsEditing(!isEditing);
-
+    }
+    const handleCheck = () => {
+        setIsChecked(!isChecked);
     }
 
   return (
-    <div className="flex gap-5 justify-between bg-white text-black text-2xl p-5 border-2 border-black dark:bg-black dark:text-white dark:border-gray-300 w-[700px] rounded-2xl">
-        
+    <div className={`flex gap-5 justify-between  text-black text-2xl p-5 border-2 border-black  dark:text-white dark:border-gray-300 w-[700px] rounded-2xl  ${isChecked? 'bg-gray-500 dark:bg-gray-600':'bg-white dark:bg-black'}`}>
+        <input 
+            type="checkbox" 
+            onChange={handleCheck}
+        />
         { isEditing? <textarea
                         type="text"
                         value={editedText}
@@ -25,7 +30,7 @@ function ToDoList({text, handleDelete}) {
                         }}
                     />
                 :
-                    <span className="flex flex-wrap items-center w-[500px] " >
+                    <span className={`flex flex-wrap items-center w-[500px] ${isChecked? 'line-through' : ''}`} >
                         {editedText}
                     </span>
         }
@@ -37,7 +42,10 @@ function ToDoList({text, handleDelete}) {
                                 (<i className="fa-solid fa-pencil"></i>)
                 }
                 onClickHandler={handleEdit}
-                customCSS="rounded-2xl hover:text-green-700 hover:bg-green-100 hover:border-green-600 hover:ease-in-out transition-colors w-[50px] h-[50px] "
+                customCSS={`rounded-2xl transition-colors w-[50px] h-[50px] ${isChecked? 'bg-white/20 dark:bg-black/20' : 'hover:text-green-700 hover:bg-green-100 hover:border-green-600 hover:ease-in-out'} `}
+                btnDisabled={
+                    isChecked? 'true' : 'false'
+                }
             />
             <Button
                 text={<i className="fa-solid fa-trash"></i>}
