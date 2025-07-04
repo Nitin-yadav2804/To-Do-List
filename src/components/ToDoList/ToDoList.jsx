@@ -15,6 +15,7 @@ function ToDoList({text, handleDelete}) {
 
   return (
     <div className="flex gap-5 justify-between bg-white text-black text-2xl p-5 border-2 border-black dark:bg-black dark:text-white dark:border-gray-300 w-[700px] rounded-2xl">
+        
         { isEditing? <textarea
                         type="text"
                         value={editedText}
@@ -24,7 +25,7 @@ function ToDoList({text, handleDelete}) {
                         }}
                     />
                 :
-                    <span className="flex flex-wrap items-center w-[400px] " >
+                    <span className="flex flex-wrap items-center w-[500px] " >
                         {editedText}
                     </span>
         }
@@ -36,12 +37,12 @@ function ToDoList({text, handleDelete}) {
                                 (<i className="fa-solid fa-pencil"></i>)
                 }
                 onClickHandler={handleEdit}
-                customCSS="rounded-2xl hover:text-green-700 hover:bg-green-100 hover:border-green-600 hover:ease-in-out transition-colors "
+                customCSS="rounded-2xl hover:text-green-700 hover:bg-green-100 hover:border-green-600 hover:ease-in-out transition-colors w-[50px] h-[50px] "
             />
             <Button
                 text={<i className="fa-solid fa-trash"></i>}
                 onClickHandler={handleDelete}
-                customCSS="rounded-2xl hover:text-red-700 hover:bg-red-100 hover:border-red-600 hover:ease-in-out transition-colors "
+                customCSS="rounded-2xl hover:text-red-700 hover:bg-red-100 hover:border-red-600 hover:ease-in-out transition-colors w-[50px] h-[50px] "
             />
         </div>
     </div>

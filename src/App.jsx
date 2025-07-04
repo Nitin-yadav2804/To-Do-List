@@ -4,7 +4,7 @@ import ToDo from "./components/ToDo/ToDo.jsx";
 
 function App() {
 
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   const changeTheme = () => {
     setIsDark(!isDark)
